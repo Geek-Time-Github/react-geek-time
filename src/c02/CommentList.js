@@ -9,7 +9,7 @@ export default class CommentList extends PureComponent {
   render() {
     return (
       <div className="comment-list">
-        {this.props.comments.map(comment => <CommentItem comment={comment} />)}
+        {this.props.comments.map((comment, index) => <CommentItem key={index} comment={comment} />)}
       </div>
     );
   }

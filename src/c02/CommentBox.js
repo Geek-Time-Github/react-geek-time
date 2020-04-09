@@ -26,3 +26,6 @@ export class CommentBox extends React.PureComponent {
 }
 
 export default withTimer(CommentBox);
+
+// 1
+// 拆分组件：CommentList CommentBoxItem CommentFrom

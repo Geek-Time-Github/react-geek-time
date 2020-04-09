@@ -9,8 +9,10 @@ const cnStrings = {
   submit: "提交",
   cancel: "取消"
 };
+
 const LocaleContext = React.createContext(enStrings);
 
+// 祖先组件
 class LocaleProvider extends React.Component {
   state = { locale: cnStrings };
   toggleLocale = () => {
@@ -18,6 +20,7 @@ class LocaleProvider extends React.Component {
       this.state.locale === enStrings
         ? cnStrings
         : enStrings;
+    console.log('locale', locale)    
     this.setState({ locale });
   };
   render() {
@@ -32,6 +35,7 @@ class LocaleProvider extends React.Component {
   }
 }
 
+// 子孙组件
 class LocaledButtons extends React.Component {
   render() {
     return (
@@ -51,10 +55,13 @@ export default () => (
   <div>
     <LocaleProvider>
       <div>
-        <br />
+        <br /><br /><br />
         <LocaledButtons />
+        <br /><br /><br />
       </div>
     </LocaleProvider>
     <LocaledButtons />
   </div>
 );
+
+// LocaleContext的作用：方便祖先组件与后代组件（中间隔了好多层组件）传值
